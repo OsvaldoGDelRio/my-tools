@@ -9,7 +9,7 @@
       <div class="my-3">
         <label class="form-label" for="listorder">List order</label>
         <select class="form-control" id="listorder" formControlName="listOrder">
-          <option value="{{ l }}" *ngFor="let l of listOrder">{{ l }}</option>
+          <option value="{{ l }}" *ngFor="let l of listOrder" [selected]="listOrder.ItemListOrderDescending"> {{ l }}</option>
         </select>
       </div>
     

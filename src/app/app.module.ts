@@ -6,20 +6,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItemlistComponent } from './itemlist/itemlist.component';
 import { FaqpageComponent } from './faqpage/faqpage.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { LocalbusinessComponent } from './localbusiness/localbusiness.component';
+import { VideoobjectComponent } from './videoobject/videoobject.component';
+import { ContactpageComponent } from './contactpage/contactpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemlistComponent,
     FaqpageComponent,
-    HomeComponent
+    HomeComponent,
+    LocalbusinessComponent,
+    VideoobjectComponent,
+    ContactpageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ClipboardModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

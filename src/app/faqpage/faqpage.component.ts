@@ -12,6 +12,11 @@
     constructor(private fb: FormBuilder, private clipboardApi: ClipboardService) { }
   
     private jsonLd: any = {};
+
+    public questions: any[] = [{
+      ques: '',
+      answer: ''
+    }];
     
     setData() {
       this.jsonLd = this.getObject();
@@ -31,29 +36,10 @@
     getJsonObj(){
       return this.jsonLd;
     }
-  
-    schemaForm = this.fb.group({
-      aliases: this.fb.array([
-        this.fb.control('')
-      ])
-    });
-  
-    get aliases() {
-      return this.schemaForm.get('aliases') as FormArray;
-    }
-  
-    listOrder: any = {};
     
     jsonSchema: any = {};
   
-    qaItem = {
-      "@type": "Question",
-      "name": "",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": ""
-      }
-      };
+    public qaItem: any[] = [];
 
     ngOnInit(): void {
       this.setData();
@@ -61,30 +47,41 @@
     }
   
     updateProfile() {
-   
-      this.aliases.value.forEach(<any> {
-          
+      this.jsonSchema.mainEntity = [''];
+      this.qaItem = [];
+      this.questions.forEach(element => {
+        this.qaItem.push(
+          {
+            "@type": "Question",
+            "name": element.ques,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": element.answer
+            }
+          }
+        );
       });
-
-      this.jsonSchema.mainEntity.push();
+    
+     this.jsonSchema.mainEntity = this.qaItem;
     }
   
     addAlias() {
-      this.aliases.push(this.fb.control(''));
+      this.questions.push({
+        ques: '',
+        answer: ''
+    })
     }
   
     copySCHEMA() {
-      this.updateProfile();
       this.clipboardApi.copyFromContent(JSON.stringify(this.jsonSchema));
     }
   
     copySCHEMATAG() {
-      this.updateProfile();
       this.clipboardApi.copyFromContent('<script type="application/ld+json">' + JSON.stringify(this.jsonSchema) + '</script>' );
     }
     
     deleteItem(i: any){
-      this.aliases.removeAt(i);
+      this.questions.splice(i);
     }
   
   }

@@ -36,7 +36,7 @@ export class ItemlistComponent implements OnInit {
 
   schemaForm = this.fb.group({
     name: ['', Validators.required],
-    listOrder: [''],
+    listOrder: ['ItemListOrderDescending'],
     aliases: this.fb.array([
       this.fb.control('')
     ])
