@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { ClipboardService } from 'ngx-clipboard';
 
+
 @Component({
-  selector: 'app-localbusiness',
+  selector: 'app-contactpage',
   templateUrl: './localbusiness.component.html',
   styleUrls: ['./localbusiness.component.css']
 })

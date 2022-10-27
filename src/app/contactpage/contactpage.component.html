@@ -1,1 +1,68 @@
-<p>contactpage works!</p>
+<h1>ContactPage</h1>
+<a href="https://schema.org/ContactPage" target="_blank">https://schema.org/ContactPage</a>
+<div>
+    <form #businessForm="ngForm"  (ngSubmit)="updateProfile()">    
+      <div>
+        <h2 class="my-3">Basic Info</h2>
+        <p>This is the minimum information needed to pass Google's Rich Test Results, but the LocalBusiness SCHEMA is very complex, with time I will be adding the rest.</p>    
+          <div *ngFor="let bus of business; let i=index">
+          <div class="my-3">
+            <label class="form-label" for="name-{{ i }}">Name:</label>
+            <input class="form-control" id="name-{{ i }}" type="text" name="name_{{i}}" [(ngModel)]="bus.name" required>
+
+            <label class="form-label" for="url-{{ i }}">URL:</label>
+            <input class="form-control" id="url-{{ i }}" type="text" name="url_{{i}}" [(ngModel)]="bus.url" required>
+
+            <label class="form-label" for="descrip-{{ i }}">Description:</label>
+            <input class="form-control" id="descrip-{{ i }}" type="text" name="descrip_{{i}}" [(ngModel)]="bus.description" required>
+
+            <label class="form-label" for="image-{{ i }}">Image URL</label>
+            <input  class="form-control" id="image-{{ i }}" type="text" name="image_{{i}}" [(ngModel)]="bus.image"  required>
+
+            <label class="form-label" for="tel-{{ i }}">Telephone</label>
+            <input  class="form-control" id="tel-{{ i }}" type="text" name="tel_{{i}}" [(ngModel)]="bus.telephone"  required>
+            <p class="mt-3">Price Range</p>
+            <div class="form-check">
+            <label for="price-{{i}}">$</label>   
+            <input 
+                    class="form-check-input" 
+                    id="price-{{ i }}" 
+                    type="radio"
+                    value="$"
+                    name="price" 
+                    [(ngModel)]="bus.priceRange" required>               
+            </div>
+            <div class="form-check">                
+                <label for="price2-{{i}}">$$</label>   
+                <input 
+                    class="form-check-input" 
+                    id="price2-{{ i }}" 
+                    type="radio"
+                    value="$$" 
+                    name="price" 
+                    [(ngModel)]="bus.priceRange" required>
+            </div>
+            <div class="form-check">
+                <label for="price3-{{i}}">$$$</label>                   
+                <input 
+                    class="form-check-input" 
+                    id="price3-{{ i }}" 
+                    type="radio"
+                    value="$$$" 
+                    name="price" 
+                    [(ngModel)]="bus.priceRange" required>
+            </div>
+        </div>
+        </div>
+       
+      </div>
+
+      <div class="btn-group mt-5" role="group" aria-label="Basic example">
+      <button class="btn btn-primary mb-2" type="button" (click)="updateProfile()">Generate SCHEMA</button>
+      <button class="btn btn-success mb-2" type="button" (click)="copySCHEMA()">Copy SCHEMA</button>
+      <button class="btn btn-success mb-2" type="button" (click)="copySCHEMATAG()">Copy SCHEMA & TAGS</button>
+      </div>
+      <pre class="mt-3">{{ jsonSchema | json }}</pre>
+    </form>
+  </div>
+
