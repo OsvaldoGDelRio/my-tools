@@ -1,5 +1,5 @@
   import { Component, OnInit } from '@angular/core';
-  import { FormArray, FormBuilder, Validators } from '@angular/forms';
+  import { FormBuilder } from '@angular/forms';
   import { ClipboardService } from 'ngx-clipboard';
   
   @Component({
