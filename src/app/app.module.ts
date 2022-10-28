@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ClipboardModule } from 'ngx-clipboard';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { LocalbusinessComponent } from './localbusiness/localbusiness.component';
 import { VideoobjectComponent } from './videoobject/videoobject.component';
 import { ContactpageComponent } from './contactpage/contactpage.component';
+import { ScrapingComponent } from './scraping/scraping.component';
 
 
 @NgModule({
@@ -21,14 +23,16 @@ import { ContactpageComponent } from './contactpage/contactpage.component';
     HomeComponent,
     LocalbusinessComponent,
     VideoobjectComponent,
-    ContactpageComponent
+    ContactpageComponent,
+    ScrapingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ClipboardModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

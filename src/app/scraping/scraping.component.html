@@ -1,0 +1,26 @@
+<h1>HTML scraper</h1>
+<p>Right now just look for nodes in @graph; Generally speaking, the data model described by a JSON-LD document is a labeled, directed graph. The graph contains nodes, which are connected by edges. A node is typically data such as a string, number, typed values (like dates and times) or an IRI. </p>
+<form (ngSubmit)="getHTMLData()">
+    <input name="url" placeholder="Target URL" [(ngModel)]="url" type="text">
+    <button class="btn btn-primary mb-2" type="button" (click)="getHTMLData()">Get it</button>
+</form>
+<div *ngIf="url">
+    {{ url }}
+</div>
+<div class="mt-3" *ngIf="nothing">
+    <h2>Sorry, nothing found!</h2>
+</div>
+<div class="mt-3" *ngIf="schemas">
+    <h2>{{number}} SCHEMA's</h2>
+    <ul class="mt-3">
+        <li *ngFor="let schema of schemas['@graph']; let i=index">{{ schema['@type'] }}</li>
+    </ul>
+</div>
+<hr>
+<div *ngIf="html">
+    <H2>We can see this inside the HTML tag</H2>
+    <p>Click inside the content to edit</p>
+    <pre [contentEditable]="true">
+    {{ html.innerHTML }}
+    </pre>
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { ClipboardService } from 'ngx-clipboard';
 
 
@@ -10,7 +9,7 @@ import { ClipboardService } from 'ngx-clipboard';
 })
 export class LocalbusinessComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private clipboardApi: ClipboardService) { }
+  constructor(private clipboardApi: ClipboardService) { }
 
     public business: any[] = [{
       "@context": "http://schema.org",

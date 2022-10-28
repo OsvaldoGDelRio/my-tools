@@ -6,6 +6,7 @@ import { FaqpageComponent } from './faqpage/faqpage.component';
 import { HomeComponent } from './home/home.component';
 import { ItemlistComponent } from './itemlist/itemlist.component';
 import { LocalbusinessComponent } from './localbusiness/localbusiness.component';
+import { ScrapingComponent } from './scraping/scraping.component';
 
 import { VideoobjectComponent } from './videoobject/videoobject.component';
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'localbusiness', component: LocalbusinessComponent},
   { path: 'contactpage', component: ContactpageComponent },
   { path: 'videoobject', component: VideoobjectComponent },
+  { path: 'scraping', component: ScrapingComponent },
 ];
 
 @NgModule({
