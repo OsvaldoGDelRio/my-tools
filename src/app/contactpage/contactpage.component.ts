@@ -8,6 +8,7 @@ import { ClipboardService } from 'ngx-clipboard';
   styleUrls: ['./contactpage.component.css']
 })
 export class ContactpageComponent implements OnInit {
+[x: string]: any;
 
   constructor(private fb: FormBuilder, private clipboardApi: ClipboardService) { }
 
@@ -31,21 +32,20 @@ export class ContactpageComponent implements OnInit {
   }
     */
 
-
     public business: any[] = [{
       "@context": "http://schema.org",
       "@type": "ContactPage",
         name: '',
         image: '',
-      "mainEntityOfPage": {}
+        mainEntityOfPage: {}
     }];
 
     public mainEntity: any[] = [{
       "@type":"WebPage",
-        "@id":'',
+        ["@id"]:'',
         headline: '',
-        "description":'',
-        "publisher":{}
+        description:'',
+        publisher:{}
     }];
 
     public publisher: any[] = [{  
@@ -67,7 +67,7 @@ export class ContactpageComponent implements OnInit {
     updateProfile() {
       this.jsonSchema = '';
       this.mainEntity[0].publisher = this.publisher[0];
-      this.business[0].mainEntity = this.mainEntity[0];
+      this.business[0].mainEntityOfPage = this.mainEntity[0];
       this.jsonSchema = this.business[0];
     }
   

@@ -1,11 +1,17 @@
 <h1>HTML scraper</h1>
-<p>Right now just look for nodes in @graph; Generally speaking, the data model described by a JSON-LD document is a labeled, directed graph. The graph contains nodes, which are connected by edges. A node is typically data such as a string, number, typed values (like dates and times) or an IRI. </p>
-<form (ngSubmit)="getHTMLData()">
-    <input name="url" placeholder="Target URL" [(ngModel)]="url" type="text">
-    <button class="btn btn-primary mb-2" type="button" (click)="getHTMLData()">Get it</button>
+<p class="col-6 my-5">Right now just look for nodes in @graph; Generally speaking, the data model described by a JSON-LD document is a labeled, directed graph. The graph contains nodes, which are connected by edges. A node is typically data such as a string, number, typed values (like dates and times) or an IRI. </p>
+<form class="row row-cols-lg-auto g-2 align-items-center" (ngSubmit)="getHTMLData()">
+    <div class="col-12">
+        <div class="input-group">
+            <input class="form-control" name="url" placeholder="Target URL" [(ngModel)]="url" type="text">
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit" (click)="getHTMLData()">Get it !</button>
+    </div>
 </form>
-<div *ngIf="url">
-    {{ url }}
+<div class="mt-5" *ngIf="url">
+    <span class="fw-bold">Target: </span>{{ url }}
 </div>
 <div class="mt-3" *ngIf="nothing">
     <h2>Sorry, nothing found!</h2>
@@ -19,7 +25,7 @@
 <hr>
 <div *ngIf="html">
     <H2>We can see this inside the HTML tag</H2>
-    <p>Click inside the content to edit</p>
+    <p>Click inside the content to edit (this is rendering in you own browser so, maybe just copy/paste)</p>
     <pre [contentEditable]="true">
     {{ html.innerHTML }}
     </pre>
